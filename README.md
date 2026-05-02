@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# ⏰ React + TypeScript Alarm Clock
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TypeScriptとReact (Vite) を活用して構築された、モダンなWeb目覚まし時計アプリです。
+ブラウザの基本機能（LocalStorage, Web Notifications API）を組み合わせ、実用的な機能を備えています。
+<img width="1397" height="626" alt="スクリーンショット 2026-05-02 151455" src="https://github.com/user-attachments/assets/721f17d6-9ca8-47ba-830a-e3abf59708f6" />
 
-Currently, two official plugins are available:
+## 🌟 主な機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **高精度タイマー**: 1秒ごとに現在時刻を更新・表示。
+- **スヌーズ機能**: アラーム停止後、5分後に再通知する機能を搭載。
+- **Web Storage連携**: `localStorage` を使用し、ブラウザをリロードしても設定したアラーム時間や状態を保持。
+- **デスクトップ通知**: `Web Notifications API` を使用し、ブラウザがバックグラウンドにあっても通知を表示。
+- **レスポンシブデザイン**: PCでもスマホブラウザでも使いやすいUI。
 
-## React Compiler
+## 🛠 使用技術
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 18
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Styling**: CSS-in-JS (Inline styles)
 
-## Expanding the ESLint configuration
+## 🚀 使い方 (ローカル開発環境)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **リポジトリをクローン**
+   ```bash
+   git clone [https://github.com/hirof35/my-alarm-app.git](https://github.com/hirof35/my-alarm-app.git)
+   cd my-alarm-app
+依存関係のインストール
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Bash
+npm install
+開発サーバーの起動
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Bash
+npm run dev
+表示されたローカルURL（例: http://localhost:5173）にアクセスしてください。
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+⚠️ 注意事項
+通知許可: アラーム通知を受け取るには、ブラウザの通知設定を「許可」にする必要があります。
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+音声再生: ブラウザのセキュリティポリシーにより、ユーザーが一度画面をクリック（操作）するまで音声が再生されない場合があります。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+通知環境: Web Notifications API は、ローカル環境（localhost）または HTTPS 環境でのみ動作します。
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📝 ライセンス
+MIT License
+
+
+---
+
+### 更新の手順
+
+1.  **ファイルを編集**: エディタで `README.md` を開き、上の内容を貼り付けて保存します。
+2.  **GitHubに反映**: ターミナルで以下のコマンドを実行します。
+
+```bash
+git add README.md
+git commit -m "Update README with detailed instructions"
+git push origin main
